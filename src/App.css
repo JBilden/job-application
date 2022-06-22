@@ -1,0 +1,391 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+
+  --content-text-color: #000;
+  --content-bg-color-main: #ccc;
+  --content-bg-color-secondary-1: #8d8d8d;
+  --content-bg-color-secondary-2: #a7a7a7;
+
+  --navbar-text-color: #999;
+  --navbar-bg-color-main: #444;
+  --navbar-bg-color-secondary-1: #1a1a1a;
+  --navbar-bg-color-secondary-2: #666;
+  
+  --navbar-hover-text-color: #fff;
+  --navbar-hover-bg-color-main: #f59e1b;
+  --navbar-hover-bg-color-secondary-1: #6b460e;
+  --navbar-hover-bg-color-secondary-2: #ab7017;
+  
+
+  /* DARK THEME COLORS */
+  --dt-bg-color: #222;
+  --dt-text-color: #aaa;
+
+  --dt-content-text-color: #aaa;
+  --dt-content-bg-color-main: #444;
+  --dt-content-bg-color-secondary-1: #727272;
+  --dt-content-bg-color-secondary-2: #5f5f5f;
+
+  --dt-navbar-text-color: #444;
+  --dt-navbar-bg-color-main: #bbb;
+  --dt-navbar-bg-color-secondary-1: #c4c4c4;
+  --dt-navbar-bg-color-secondary-2: #999;
+  
+  --dt-navbar-hover-text-color: #000;
+  --dt-navbar-hover-bg-color-main: #29bbff;
+  --dt-navbar-hover-bg-color-secondary-1: #61cdff;
+  --dt-navbar-hover-bg-color-secondary-2: #2094ca;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+.App .Content a:hover {
+  color: #000;
+}
+
+.App {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 600px) {
+  .App {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .App {
+    max-width: 1200px;
+  }
+}
+
+.App header {
+  text-align: center;
+
+  transition: 0.5s;
+}
+
+.App .Content {
+  position: relative;
+  padding: 1em 2em;
+  min-height: 30vh;
+  background-color: var(--content-bg-color-main);
+
+  transition: 0.5s;
+}
+
+.App .Content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 35px;
+  height: 100%;
+  background: var(--content-bg-color-secondary-1);
+  transform-origin: left;
+  transform: skewY(135deg);
+  transition: 0.5s;
+}
+
+.App .Content::after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: -35px;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  background: var(--content-bg-color-secondary-2);
+  transform-origin: bottom;
+  transform: skewX(135deg);
+  transition: 0.5s;
+}
+
+.App .Content a {
+  color: var(--content-text-color);
+  text-decoration-line: underline;
+}
+
+.App .Content a:hover {
+  text-decoration-line: none;
+}
+
+.App .Content table {
+  border-width: 0px;
+  border-spacing: 0 10px;
+}
+
+.App .Content tr.empty {
+  height: 1em;
+  border-bottom: 5px solid black;
+  padding-bottom: 1em;
+}
+
+.App .Content th {
+  font-size: larger;
+  text-align: left;
+}
+
+.App .Content td {
+  vertical-align: top;
+  min-width: 15em;
+  text-align: left;
+}
+
+.App footer {
+  position: relative;
+  text-align: center;
+  background-color: var(--content-bg-color-main);
+  margin-top: .5em;
+  margin-bottom: 1em;
+  padding: .3em 0 .3em 0;
+
+  transition: 0.5s;
+}
+
+.App footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 35px;
+  height: 100%;
+  background: var(--content-bg-color-secondary-1);
+  transform-origin: left;
+  transform: skewY(135deg);
+  transition: 0.5s;
+}
+
+.App footer::after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: -35px;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  background: var(--content-bg-color-secondary-2);
+  transform-origin: bottom;
+  transform: skewX(135deg);
+  transition: 0.5s;
+}
+
+.Utils-Wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: .2em;
+}
+
+.Language-Picker {
+  padding-left: 2em;
+}
+
+.SVGFlag {
+  width: 1.6em;
+  height: .8em;
+  border: 1px solid black;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  margin-right: .4em;
+  transition: 0.1s;
+}
+
+.SVGFlag:active {
+  border: 1px solid white;
+  opacity: 1;
+  filter: none;
+}
+
+.SVGFlag:hover {
+  opacity: 1;
+  filter: none;
+}
+
+.SVGFlag.selected {
+  opacity: 1;
+  filter: none;
+}
+
+ul {
+  display: flex;
+  min-height: 110px;
+  padding-top: 10px;
+  padding-inline-start: 0px;
+  margin-block-end: 0;
+}
+
+ul li:first-of-type {
+  margin-left: 25px;
+}
+
+ul li {
+  display: table-cell;
+  position: relative;
+  float: left;
+  list-style: none;
+  width: 150px;
+  height: 40px;
+  background: var(--navbar-bg-color-main);
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-top: auto;
+  padding-top: 10px;
+  transition: 0.5s;
+
+  color: var(--navbar-text-color);
+
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+ul li.active {
+  background: var(--navbar-hover-bg-color-main);
+  color: var(--navbar-hover-text-color);
+}
+
+ul li:hover {
+  background: var(--navbar-hover-bg-color-main);
+  color: var(--navbar-hover-text-color);
+  height: 90px;
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 15px;
+  height: 100%;
+  background: var(--navbar-bg-color-secondary-1);
+  transform-origin: left;
+  transform: skewY(135deg);
+  transition: 0.5s;
+}
+
+ul li.active::before {
+  background: var(--navbar-hover-bg-color-secondary-1);
+}
+
+ul li:hover::before {
+  background: var(--navbar-hover-bg-color-secondary-1);
+}
+
+ul li::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: var(--navbar-bg-color-secondary-2);
+  transform-origin: bottom;
+  transform: skewX(135deg);
+  transition: 0.5s;
+}
+
+ul li.active::after {
+  background: var(--navbar-hover-bg-color-secondary-2)
+}
+
+ul li:hover::after {
+  background: var(--navbar-hover-bg-color-secondary-2);
+}
+
+/* 
+*
+* DARK THEME BELOW
+*
+*/
+
+body.dark-theme {
+  color: var(--dt-text-color);
+  background-color: var(--dt-bg-color);
+}
+
+body.dark-theme .App .Content {
+  background-color: var(--dt-content-bg-color-main);
+}
+
+body.dark-theme .App .Content::before {
+  background: var(--dt-content-bg-color-secondary-1);
+}
+
+body.dark-theme .App .Content::after {
+  background: var(--dt-content-bg-color-secondary-2);
+}
+
+body.dark-theme .App .Content a {
+  color: var(--dt-content-text-color);
+}
+
+
+body.dark-theme .App footer {
+  background-color: var(--dt-content-bg-color-main);
+}
+
+body.dark-theme .App footer::before {
+  background: var(--dt-content-bg-color-secondary-1);
+}
+
+body.dark-theme .App footer::after {
+  background: var(--dt-content-bg-color-secondary-2);
+}
+
+body.dark-theme .SVGFlag {
+  border: 1px solid #fff;
+}
+
+body.dark-theme .SVGFlag:active {
+  border: 1px solid #000;
+}
+
+body.dark-theme ul li {
+  background: var(--dt-navbar-bg-color-main);
+  color: var(--dt-navbar-text-color);
+}
+
+body.dark-theme ul li.active {
+  background: var(--dt-navbar-hover-bg-color-main);
+  color: var(--dt-navbar-hover-text-color);
+}
+
+body.dark-theme ul li:hover {
+  background: var(--dt-navbar-hover-bg-color-main);
+  color: var(--dt-navbar-hover-text-color);
+}
+
+body.dark-theme ul li::before {
+  background: var(--dt-navbar-bg-color-secondary-1);
+}
+
+body.dark-theme ul li.active::before {
+  background: var(--dt-navbar-hover-bg-color-secondary-1);
+}
+
+body.dark-theme ul li:hover::before {
+  background: var(--dt-navbar-hover-bg-color-secondary-1);
+}
+
+body.dark-theme ul li::after {
+  background: var(--dt-navbar-bg-color-secondary-2);
+}
+
+body.dark-theme ul li.active::after {
+  background: var(--dt-navbar-hover-bg-color-secondary-2)
+}
+
+body.dark-theme ul li:hover::after {
+  background: var(--dt-navbar-hover-bg-color-secondary-2);
+}
